@@ -35,8 +35,6 @@ const Game = () => {
   const [brushSize, setBrushSize] = useState(5);
   const [guess, setGuess] = useState('');
   const [showWord, setShowWord] = useState(false);
-  const [showToast, setShowToast] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
   const isDrawingRef = useRef(false);
   const lastPosRef = useRef({ x: 0, y: 0 });
   const navigate = useNavigate();
