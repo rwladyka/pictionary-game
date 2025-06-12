@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm --prefix frontend run lint
+npm --prefix frontend run type-check
+npx --prefix frontend lint-staged 
