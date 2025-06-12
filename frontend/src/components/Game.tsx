@@ -217,6 +217,7 @@ const Game = () => {
 
   const handleGuess = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('handleGuess', ws?.readyState, WebSocket.OPEN);
     if (!guess.trim() || !ws || ws.readyState !== WebSocket.OPEN) return;
     ws.send(JSON.stringify({ type: 'guess', guess: guess.trim() }));
     setGuess('');
@@ -454,6 +455,7 @@ const Game = () => {
               <form onSubmit={handleGuess} className="space-y-2">
                 <input
                   type="text"
+                  data-testid="guess-input"
                   value={guess}
                   onChange={(e) => setGuess(e.target.value)}
                   placeholder="Type your guess..."
@@ -464,6 +466,7 @@ const Game = () => {
                   type="submit"
                   className="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg transition-colors"
                   disabled={isDrawer}
+                  data-testid="send-guess-button"
                 >
                   Send Guess
                 </button>
